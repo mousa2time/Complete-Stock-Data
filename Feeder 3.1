@@ -1,0 +1,54 @@
+rom google.colab import files
+uploaded = files.upload()
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv('path_to_your_file.csv')
+
+# Display the first few rows of the dataframe
+df.head()
+# Get information about the dataset
+df.info()
+
+# Get basic statistics about the numerical columns
+df.describe()
+
+# Check for missing values
+df.isnull().sum()
+# Drop unnecessary columns (e.g., 'Adj Close', 'Volume', etc. if we only care about the 'Close' prices)
+df_clean = df[['Date', 'Company', 'Close']]
+
+# Convert 'Date' column to datetime format
+df_clean['Date'] = pd.to_datetime(df_clean['Date'])
+
+# Filter data to include only stock prices from 2015 to 2020
+df_clean = df_clean[(df_clean['Date'] >= '2015-01-01') & (df_clean['Date'] <= '2020-12-31')]
+
+# Drop rows with missing 'Close' values
+df_clean = df_clean.dropna(subset=['Close'])
+
+# Display the cleaned data
+df_clean.head()
+# Calculate the daily return for each company
+df_clean['Daily_Return'] = df_clean.groupby('Company')['Close'].pct_change() * 100
+
+# Display the first few rows to verify
+df_clean.head()
+# Save the cleaned and processed dataset
+df_clean.to_csv('faang_stock_subset.csv', index=False)
+
+# Provide a link to download the file
+from google.colab import files
+files.download('faang_stock_subset.csv')
+# Data Subsetting and Analysis of FAANG Stock Data
+
+## Step 1: Loading the Dataset
+import pandas as pd
+df = pd.read_csv('path_to_your_file.csv')
+df.head()
+df_clean = df[['Date', 'Company', 'Close']]
+df_clean['Date'] = pd.to_datetime(df_clean['Date'])
+df_clean = df_clean[(df_clean['Date'] >= '2015-01-01') & (df_clean['Date'] <= '2020-12-31')]
+df_clean = df_clean.dropna(subset=['Close'])
+df_clean['Daily_Return'] = df_clean.groupby('Company')['Close'].pct_change() * 100
+df_clean.to_csv('faang_stock_subset.csv', index=False)
