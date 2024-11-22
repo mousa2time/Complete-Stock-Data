@@ -1,5 +1,5 @@
 # Complete-Stock-Data
-readme_content = """
+ 
 # FAANG Stock Data Analysis
 
 This repository contains a cleaned and processed dataset of **FAANG** (Facebook, Apple, Amazon, Netflix, Google) stock prices from 2015 to 2020. The data has been curated to focus on daily closing prices, enabling in-depth analysis of stock performance over a specific period. This dataset is useful for those interested in financial analysis, stock market trends, or building machine learning models for stock price prediction.
