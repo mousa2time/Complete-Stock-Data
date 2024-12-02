@@ -1,0 +1,9 @@
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("aayushmishra1512/faang-complete-stock-data")
+
+print("Path to dataset files:", path)
+python scripts/data_preprocessing.py
+python scripts/data_analysis.py
+python scripts/data_visualization.py
