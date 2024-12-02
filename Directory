@@ -1,0 +1,12 @@
+/faang-stock-analysis/
+    ├── /data/
+    │   └── faang_complete_stock_data.csv
+    ├── /scripts/
+    │   ├── data_preprocessing.py
+    │   ├── data_analysis.py
+    │   ├── data_visualization.py
+    ├── /notebooks/
+    │   └── faang_stock_analysis.ipynb
+    ├── /images/
+    ├── README.md
+    └── requirements.txt
